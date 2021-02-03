@@ -1,1 +1,45 @@
+version: "3.7"
+services:
+  db:
+    image: mysql:5.7
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456789
+      - MYSQL_DATABASE=take-home-db
+      - MYSQL_USER=take-home-user
+      - MYSQL_PASSWORD=123456789
+    ports:
+      - "3306:3306"
 
+  backend:
+    image: node:13
+    working_dir: /var/app/backend
+    ports:
+      - 4000:4000
+      - 9229:9229
+    command: npm start
+    environment:
+      - PORT=4000
+      - DBPORT=3306
+      - DBUSER=root
+      - DBPASSWORD=123456789
+      - DBDATABASE=take-home-db
+      - DBHOST=db
+      - NODE_ENV=development
+    volumes:
+      - ./packages/backend:/var/app/backend
+    depends_on:
+      - db
+
+  frontend:
+    image: node:13
+    working_dir: /var/app/frontend
+    ports:
+      - 3000:3000
+    command: npm start
+    stdin_open: true
+    volumes:
+      - ./packages/frontend:/var/app/frontend

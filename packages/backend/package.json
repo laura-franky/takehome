@@ -1,0 +1,52 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prettierrc.js",
+  "scripts": {
+    "test": "jest --verbose --coverage --forceExit --runInBand --testTimeout=10000",
+    "test:watch": "jest --watchAll --verbose  --runInBand",
+    "start": "tsc-watch --outDir ./dist --onSuccess 'node ./dist/index'",
+    "build": "tsc -b .",
+    "lint": "tslint --project .",
+    "lint:fix": "tslint --project . --fix",
+    "typeorm": "node ./node_modules/typeorm/cli.js"
+  },
+  "author": "Laura Hontabat-Franky",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "class-validator": "^0.12.2",
+    "dotenv-safe": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.2.5",
+    "node-fetch": "^2.6.1",
+    "reflect-metadata": "^0.1.13",
+    "ts-jest": "^26.4.4",
+    "tsc-watch": "^4.2.9",
+    "typeorm": "^0.2.29",
+    "typeorm-pagination": "^2.0.1",
+    "typescript": "^4.1.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/body-parser": "^1.19.0",
+    "@types/express": "^4.17.9",
+    "@types/jest": "^26.0.20",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/node": "^14.14.20",
+    "@types/node-fetch": "^2.5.7",
+    "@types/supertest": "^2.0.10",
+    "prettier": "^2.2.1",
+    "supertest": "^6.0.1",
+    "tslint": "^6.1.3",
+    "tslint-config-airbnb": "^5.11.2",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-etc": "^1.13.9",
+    "tslint-plugin-prettier": "^2.3.0",
+    "typeorm-fixtures-cli": "^1.9.0"
+  }
+}
