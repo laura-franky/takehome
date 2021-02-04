@@ -1,9 +1,11 @@
 import React, { ChangeEvent, FunctionComponent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { UnauthorizedLayout } from '../../components/UnauthorizedLayout';
 import { LoginOptions, useAuth } from '../../contexts/AuthenticationContext';
-import { Button } from './components/Button';
 import { Input } from './components/Input';
+import { StyledLink } from './components/Link';
 import { Mask, MaskHolder } from './components/Mask';
+import { StyledButton } from './components/StyledButton';
 
 export const LoginPage: FunctionComponent = () => {
   const {
@@ -32,20 +34,20 @@ export const LoginPage: FunctionComponent = () => {
   };
 
   return (
-    <MaskHolder>
-      <form onSubmit={onSubmitForm}>
-        <Mask>
-          <p id="formError" style={{ color: '#000000', textAlign: 'center' }}>
-            {formError}
-          </p>
-          <Input name="username" type="text" label="Username" onChange={fieldDidChange} required={true} />
-          <Input name="password" label="Password" type="password" onChange={fieldDidChange} required={true} />
-          <Button color="primary" type="submit">
-            Log in
-          </Button>
-          <Link to="/register">Register</Link>
-        </Mask>
-      </form>
-    </MaskHolder>
+    <UnauthorizedLayout>
+      <MaskHolder>
+        <form onSubmit={onSubmitForm}>
+          <Mask>
+            <p id="formError" style={{ color: '#000000', textAlign: 'center' }}>
+              {formError}
+            </p>
+            <Input name="username" type="text" label="Username" onChange={fieldDidChange} required={true} />
+            <Input name="password" label="Password" type="password" onChange={fieldDidChange} required={true} />
+            <StyledButton type="submit">Log in</StyledButton>
+            <StyledLink to="/register">Register</StyledLink>
+          </Mask>
+        </form>
+      </MaskHolder>
+    </UnauthorizedLayout>
   );
 };

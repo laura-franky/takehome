@@ -9,7 +9,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=123456789
       - MYSQL_DATABASE=take-home-db
-      - MYSQL_USER=take-home-user
+      - MYSQL_USER=root
       - MYSQL_PASSWORD=123456789
     ports:
       - "3306:3306"

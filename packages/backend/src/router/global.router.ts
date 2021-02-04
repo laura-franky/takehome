@@ -1,4 +1,4 @@
-import { Authentication } from './../middleware/authentication';
+// import { Authentication } from './../middleware/authentication';
 import { userRouter } from './user.router';
 import { cityRouter } from './city.router';
 import { Request, Response, Router } from 'express';
@@ -13,5 +13,5 @@ globalRouter.get('/', async (_: Request, res: Response) => {
   });
 });
 
-globalRouter.use('/city', Authentication.verifyAccess, cityRouter);
+globalRouter.use('/city', cityRouter);
 globalRouter.use('/user', userRouter);

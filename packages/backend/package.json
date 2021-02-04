@@ -10,7 +10,8 @@
     "build": "tsc -b .",
     "lint": "tslint --project .",
     "lint:fix": "tslint --project . --fix",
-    "typeorm": "node ./node_modules/typeorm/cli.js"
+    "typeorm": "node ./node_modules/typeorm/cli.js",
+    "fixtures": "npx fixtures ./src/fixtures --config ormconfig.js"
   },
   "author": "Laura Hontabat-Franky",
   "license": "ISC",

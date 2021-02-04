@@ -1,0 +1,5 @@
+entity: City
+items:
+  protarasCity:
+    apiId: '18918'
+    name: 'Protaras'

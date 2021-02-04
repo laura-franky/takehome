@@ -6,7 +6,7 @@ const prefix = (path) => {
       break;
     case 'development':
     default:
-      prefix = 'dist/src';
+      prefix = 'dist';
       break;
   }
 
@@ -18,15 +18,16 @@ const config = {
   host: process.env.DBHOST,
   port: Number(process.env.DBPORT),
   username: process.env.DBUSER,
-  password: process.env.DBPASSWORD,
+  password: '123456789',
   database: process.env.DBDATABASE,
-  synchronize: false,
-  logging: false,
-  entities: [prefix('{entities,domain,projection}/**/*.*')],
+  synchronize: true,
+  logging: true,
+  cache: false,
+  entities: [prefix('entities/**/*.*')],
   migrations: [prefix('migration/**/*.*')],
   subscribers: [prefix('{subscriber,domain,projection}/**/*.*')],
   cli: {
-    entitiesDir: prefix('{entities,domain,projection}'),
+    entitiesDir: prefix('entities'),
     migrationsDir: prefix('migration'),
     subscribersDir: prefix('{subscriber,domain,projection}'),
   },

@@ -1,9 +1,11 @@
 import React, { ChangeEvent, FunctionComponent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { UnauthorizedLayout } from '../../components/UnauthorizedLayout';
 import { RegisterOptions, useAuth } from '../../contexts/AuthenticationContext';
-import { Button } from './components/Button';
 import { Input } from './components/Input';
+import { StyledLink } from './components/Link';
 import { Mask, MaskHolder } from './components/Mask';
+import { StyledButton } from './components/StyledButton';
 
 export const RegisterPage: FunctionComponent = () => {
   const {
@@ -45,27 +47,27 @@ export const RegisterPage: FunctionComponent = () => {
   };
 
   return (
-    <MaskHolder>
-      <form onSubmit={onSubmitFire}>
-        <Mask>
+    <UnauthorizedLayout>
+      <MaskHolder>
+        <form onSubmit={onSubmitFire}>
+          <Mask>
+            <p style={{ color: '#000', textAlign: 'center' }}>{formError}</p>
+            <Input name="username" type="text" label="Username" onChange={fieldDidChange} required={true} />
+            <Input name="email" type="email" label="Email" onChange={fieldDidChange} required={true} />
+            <Input name="password" label="Password" type="password" onChange={fieldDidChange} required={true} />
+            <Input
+              name="confirmation"
+              label="Confirm password"
+              type="password"
+              onChange={passwordConfirmation}
+              required={true}
+            />
+            <StyledButton type="submit">Register</StyledButton>
+            <StyledLink to="/login">Back to Login</StyledLink>
+          </Mask>
           <p style={{ color: '#000', textAlign: 'center' }}>{formError}</p>
-          <Input name="username" type="text" label="Username" onChange={fieldDidChange} required={true} />
-          <Input name="email" type="email" label="Email" onChange={fieldDidChange} required={true} />
-          <Input name="password" label="Password" type="password" onChange={fieldDidChange} required={true} />
-          <Input
-            name="confirmation"
-            label="Confirm password"
-            type="password"
-            onChange={passwordConfirmation}
-            required={true}
-          />
-          <Button color="primary" type="submit">
-            Register
-          </Button>
-          <Link to="/login">Back to Login</Link>
-        </Mask>
-        <p style={{ color: '#000', textAlign: 'center' }}>{formError}</p>
-      </form>
-    </MaskHolder>
+        </form>
+      </MaskHolder>
+    </UnauthorizedLayout>
   );
 };

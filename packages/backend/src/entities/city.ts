@@ -4,7 +4,7 @@ import { User } from './user';
 @Entity()
 export class City {
   @PrimaryGeneratedColumn('uuid')
-  id: number;
+  id: string;
 
   @Column()
   apiId: number;
@@ -12,7 +12,7 @@ export class City {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ nullable: true })
   zipCode: string;
 
   @CreateDateColumn()
@@ -21,6 +21,9 @@ export class City {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToMany(() => User, (user) => user.cities)
+  @ManyToMany(() => User, (user) => user.cities, {
+    onDelete: 'CASCADE',
+    nullable: false,
+  })
   users: User[];
 }
