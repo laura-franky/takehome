@@ -20,7 +20,7 @@ const config = {
   username: process.env.DBUSER,
   password: '123456789',
   database: process.env.DBDATABASE,
-  synchronize: true,
+  synchronize: false,
   logging: true,
   cache: false,
   entities: [prefix('entities/**/*.*')],
