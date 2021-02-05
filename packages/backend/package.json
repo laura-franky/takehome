@@ -16,6 +16,7 @@
   "author": "Laura Hontabat-Franky",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "class-validator": "^0.12.2",

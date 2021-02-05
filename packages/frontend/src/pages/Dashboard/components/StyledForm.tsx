@@ -10,5 +10,5 @@ const Styled = styled.form`
 `;
 
 export const StyledForm = (props: any) => {
-  return <Styled {...props}></Styled>;
+  return  <Styled {...props}/>;
 };

@@ -1,5 +1,4 @@
 import React, { ChangeEvent, FunctionComponent, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { UnauthorizedLayout } from '../../components/UnauthorizedLayout';
 import { LoginOptions, useAuth } from '../../contexts/AuthenticationContext';
 import { Input } from './components/Input';

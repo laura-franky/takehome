@@ -16,13 +16,6 @@ export const addCityToUser = async (req: Request, res: Response) => {
     return;
   }
   try {
-    const userRepository = await getRepository(User);
-    const user = await userRepository.findOneOrFail(userId!);
-
-    let city = new City();
-    city.name = name;
-    city.zipCode = zipCode;
-    city.users.push(user);
     // const response = await fetch(
     //   `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=b73b624979a3ffaa51d0475f04bccd85`,
     //   {
@@ -30,7 +23,15 @@ export const addCityToUser = async (req: Request, res: Response) => {
     //   },
     // );
     // const city = await response.json();
-    // res.send(city);
+    //
+
+    const userRepository = await getRepository(User);
+    const user = await userRepository.findOneOrFail(userId!);
+
+    let city = new City();
+    city.users.push(user);
+
+    res.send(city);
   } catch (error) {
     res.status(500).send(JSON.stringify(error));
   }

@@ -1,7 +1,7 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 import React from 'react';
 import { DashboardLayout } from '../../components/Layout';
-import { Button, Card } from 'antd';
+import { Card } from 'antd';
 import styled from 'styled-components';
 import { City, CityCard } from './components/CityCard';
 import { useAuth } from '../../contexts/AuthenticationContext';
@@ -63,7 +63,7 @@ export const DashboardPage: FunctionComponent = () => {
     <DashboardLayout>
       <CityCardWrapper>
         {cities ? (
-          cities.map((city) => <CityCard key={city.id} city={city} deleteCity={deleteCity}></CityCard>)
+          cities.map((city) =>  <CityCard key={city.id} city={city} deleteCity={deleteCity}/>)
         ) : (
           <StyledDiv>You have no weather updates</StyledDiv>
         )}

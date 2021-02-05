@@ -13,5 +13,5 @@ export const Styled = styled(Link)`
 `;
 
 export const StyledLink = (props: any) => {
-  return <Styled {...props}></Styled>;
+  return  <Styled {...props}/>;
 };

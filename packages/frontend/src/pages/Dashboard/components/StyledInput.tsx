@@ -10,5 +10,5 @@ const Styled = styled(Input)`
 `;
 
 export const StyledInput = (props: any) => {
-  return <Styled {...props}></Styled>;
+  return  <Styled {...props}/>;
 };

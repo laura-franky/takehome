@@ -1,5 +1,5 @@
-import React, { ChangeEvent, FunctionComponent, useEffect, useState } from 'react';
-import { Button, Card, Col, Row, Modal } from 'antd';
+import React, { FunctionComponent } from 'react';
+import { Card } from 'antd';
 import styled from 'styled-components';
 
 const StyledCard = styled(Card)`
@@ -23,5 +23,5 @@ export type CityItemProps = {
 };
 
 export const CityCard: FunctionComponent<CityItemProps> = ({ city, deleteCity }) => {
-  return <StyledCard title={city.name}></StyledCard>;
+  return  <StyledCard title={city.name}/>;
 };

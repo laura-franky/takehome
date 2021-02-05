@@ -1,4 +1,4 @@
-import { Button, Layout } from 'antd';
+import { Layout } from 'antd';
 import React from 'react';
 import styled from 'styled-components';
 import { useAuth } from '../contexts/AuthenticationContext';

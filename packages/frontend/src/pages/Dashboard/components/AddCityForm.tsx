@@ -62,7 +62,7 @@ export const AddCityForm: FunctionComponent<AddCityFormProps> = ({ setAddCityVis
   return (
     <StyledCard>
       <StyledForm onSubmit={onSubmitForm}>
-        <StyledInput name="name" type="text" placeholder="Name" onChange={fieldDidChange} required />
+        <StyledInput name="name" type="text" placeholder="Name" onChange={fieldDidChange} required={true} />
         <ButtonWrapper>
           <StyledButton type="submit">Add City</StyledButton>
         </ButtonWrapper>
