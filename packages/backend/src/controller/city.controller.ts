@@ -17,7 +17,7 @@ export const addCityToUser = async (req: Request, res: Response) => {
   }
   try {
     // const response = await fetch(
-    //   `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=b73b624979a3ffaa51d0475f04bccd85`,
+    //   `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=`,
     //   {
     //     method: 'GET',
     //   },
@@ -62,7 +62,7 @@ export const getUserCitiesFromAPI = async (req: Request, res: Response) => {
     const user = await userRepository.findOneOrFail(userId!, { relations: ['cities'] });
 
     // getting  current weather of User Cities
-    // `api.openweathermap.org/data/2.5/weather?id=${city.apiId}&appid=b73b624979a3ffaa51d0475f04bccd85`,
+    // `api.openweathermap.org/data/2.5/weather?id=${city.apiId}&appid=`,
 
     res.send({ data: user });
   } catch (error) {
